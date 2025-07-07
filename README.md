@@ -34,8 +34,8 @@ Robot Framework: The core automation framework.
 To run this project locally, follow these steps:
 1. Clone the Repository:
 ```bash
-git clone [Your Repository URL Here]
-cd [Your Project Folder Name]
+git clone https://github.com/pornaksornni/robot-reqres-api
+cd robot-reqres-api
 ```
 2. Install Dependencies:
 ```bash
