@@ -4,7 +4,6 @@ Resource    ${CURDIR}/../../resources/imports.robot
 *** Keywords ***
 Get user list
     [Arguments]    ${page}=${None}    ${per_page}=${None}    ${headers}=${None}    ${expected_status}=200\
-    ${expected_status}    Convert To String    ${expected_status}
     ${default_headers}    Create Dictionary    Content-Type=application/json; charset=utf-8    x-api-key=${reqres_x_api_key}
     ${query_params}    Create Dictionary
     Run Keyword If    '${page}' != '${None}'    Set To Dictionary    ${query_params}    page=${page}

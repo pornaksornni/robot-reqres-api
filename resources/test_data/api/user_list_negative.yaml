@@ -2,7 +2,7 @@ scenario_1:
   request_params:
     page: 99
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 99
     per_page: 6
     total: 12
@@ -14,7 +14,7 @@ scenario_2:
   request_params:
     page: -2
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: -2
     per_page: 6
     total: 12
@@ -26,7 +26,7 @@ scenario_3:
   request_params:
     page: abc
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 6
     total: 12
@@ -38,7 +38,7 @@ scenario_4:
   request_params:
     per_page: 0
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 6
     total: 12
@@ -50,7 +50,7 @@ scenario_5:
   request_params:
     per_page: abc
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 6
     total: 12
@@ -64,7 +64,7 @@ scenario_6:
   request_headers:
     Content-Type: application/json
   expected_response:
-    status_code: 401
+    status_code: "401"
     error_reason: Unauthorized
     error_message: Missing API key.
     how_to_get_one: https://reqres.in/signup

@@ -1,6 +1,6 @@
 scenario_1:
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 6
     total: 12
@@ -12,7 +12,7 @@ scenario_2:
   request_params:
     page: 1
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 6
     total: 12
@@ -24,7 +24,7 @@ scenario_3:
   request_params:
     page: 2
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 2
     per_page: 6
     total: 12
@@ -36,7 +36,7 @@ scenario_4:
   request_params:
     per_page: 2
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 2
     total: 12
@@ -48,7 +48,7 @@ scenario_5:
   request_params:
     per_page: 100
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 100
     total: 12
@@ -61,7 +61,7 @@ scenario_6:
     page: 2
     per_page: 10
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 2
     per_page: 10
     total: 12
@@ -74,7 +74,7 @@ scenario_7:
     page: 1
     per_page: 10
   expected_response:
-    status_code: 200
+    status_code: "200"
     page: 1
     per_page: 10
     total: 12
