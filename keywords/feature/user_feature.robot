@@ -6,7 +6,7 @@ Verify user list response structure
     [Documentation]    Verify top-level structure of user list response.
     [Arguments]    ${user_list}
     ${user_list}    Set Variable    ${user_list.json()}
-    ${data_list}       Get From Dictionary    ${user_list}    data
+    ${data_list}    Get From Dictionary    ${user_list}    data
     ${support_dict}    Get From Dictionary    ${user_list}    support
     common_keywords.Verify response json has key    ${user_list}    page
     common_keywords.Verify response json has key    ${user_list}    per_page
@@ -31,7 +31,7 @@ Verify user list pagination metadata
 
 Verify user data list content
     [Arguments]    ${user_list}    ${expected_data_count}
-    ${data_list}       Get From Dictionary    ${user_list.json()}    data
+    ${data_list}    Get From Dictionary    ${user_list.json()}    data
     ${data_count}    Get Length    ${data_list}
     Should Be Equal    ${data_count}    ${expected_data_count}    msg=Incorrect 'data_count' value. Expected ${expected_data_count}, but got ${data_count}. Response data list: ${data_list}
     FOR    ${user}    IN    @{data_list}
@@ -47,10 +47,20 @@ Verify user data list content
 
 Verify user list support section
     [Arguments]    ${user_list}    ${expected_support_url}    ${expected_support_text}
-    ${support}       Get From Dictionary    ${user_list.json()}    support
+    ${support}    Get From Dictionary    ${user_list.json()}    support
     common_keywords.Verify response json has key    ${support}    url
     common_keywords.Verify response json has key    ${support}    text
     common_keywords.Verify response value is string    ${support}    url
     common_keywords.Verify response value is string    ${support}    text
     common_keywords.Verify response contains key value    ${support}    url    ${expected_support_url}
     common_keywords.Verify response contains key value    ${support}    text    ${expected_support_text}
+
+Verify when error 401
+    [Arguments]    ${response}    ${expected_error}    ${expected_how_to_get_one}
+    ${response}    Set Variable   ${response.json()}
+    common_keywords.Verify response json has key    ${response}    error
+    common_keywords.Verify response json has key    ${response}    how_to_get_one
+    common_keywords.Verify response value is string    ${response}    error
+    common_keywords.Verify response value is string    ${response}    how_to_get_one
+    common_keywords.Verify response contains key value    ${response}    error    ${expected_error}
+    common_keywords.Verify response contains key value    ${response}    how_to_get_one    ${expected_how_to_get_one}

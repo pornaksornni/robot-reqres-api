@@ -4,13 +4,17 @@ Create API session
     Create Session    ${session_alias}    ${base_url}
 
 Get API request
-    [Arguments]    ${session_alias}    ${endpoint}    ${params}=${NONE}    ${headers}=${NONE}
-    ${response}    GET On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}
+    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${NONE}    ${headers}=${NONE}
+    ${response}    GET On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    expected_status=${expected_status}
     RETURN    ${response}
 
 Verify status code
     [Arguments]    ${response}   ${expected_status_code}
-    Should Be Equal As Strings    ${response.status_code}   ${expected_status_code}    msg=Failed to get user list. Expected status code ${expected_status_code}, but got ${response.status_code}. Response: ${response.text}
+    Should Be Equal As Strings    ${response.status_code}   ${expected_status_code}    msg=Expected status code ${expected_status_code}, but got ${response.status_code}. Response: ${response.text}
+
+Verify error meaasge
+    [Arguments]    ${response}   ${error_reason}
+    Should Be Equal As Strings    ${response.reason}   ${error_reason}    msg=Expected reason ${error_reason}, but got ${response.reason}. Response: ${response.text}
 
 Verify response json has key
     [Arguments]    ${response}    ${key}
