@@ -1,6 +1,6 @@
 *** Settings ***
 Resource     ${CURDIR}/../../resources/imports.robot
-Variables    ${CURDIR}/../../resources/test_data/api/user_id_negative.yaml
+Variables    ${CURDIR}/../../resources/test_data/api/get_users/user_id_negative.yaml
 
 *** Test Cases ***
 Scenario1: Users - Get user by id - User not found - Expected 404 not found

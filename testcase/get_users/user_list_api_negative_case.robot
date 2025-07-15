@@ -1,6 +1,6 @@
 *** Settings ***
 Resource     ${CURDIR}/../../resources/imports.robot
-Variables    ${CURDIR}/../../resources/test_data/api/user_list_negative.yaml
+Variables    ${CURDIR}/../../resources/test_data/api/get_users/user_list_negative.yaml
 
 *** Test Cases ***
 Scenario1: Users - Get user list - With non existent page number - Expect 200 ok but empty data

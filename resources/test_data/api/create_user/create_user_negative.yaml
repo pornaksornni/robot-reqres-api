@@ -1,0 +1,29 @@
+scenario_1:
+  request_params:
+    name: morpheus
+  expected_response:
+    status_code: "201"
+    name: morpheus
+scenario_2:
+  request_params:
+    job: leader
+  expected_response:
+    status_code: "201"
+    job: leader
+scenario_3:
+  expected_response:
+    status_code: "201"
+scenario_4:
+  request_params:
+    name: 123
+  expected_response:
+    status_code: "201"
+    name: 123
+scenario_5:
+  request_headers:
+    Content-Type: application/json
+  expected_response:
+    status_code: "401"
+    error_reason: Unauthorized
+    error_message: Missing API key.
+    how_to_get_one: https://reqres.in/signup

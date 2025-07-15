@@ -4,8 +4,13 @@ Create API session
     Create Session    ${session_alias}    ${base_url}
 
 Get API request
-    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${NONE}    ${headers}=${NONE}
+    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${None}    ${headers}=${None}
     ${response}    GET On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    expected_status=${expected_status}
+    RETURN    ${response}
+
+Post API request
+    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${None}    ${headers}=${None}    ${body}=${None}
+    ${response}    Post On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    json=&{body}    expected_status=${expected_status}
     RETURN    ${response}
 
 Verify status code

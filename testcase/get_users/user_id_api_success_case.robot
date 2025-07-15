@@ -1,6 +1,6 @@
 *** Settings ***
 Resource     ${CURDIR}/../../resources/imports.robot
-Variables    ${CURDIR}/../../resources/test_data/api/user_id_success.yaml
+Variables    ${CURDIR}/../../resources/test_data/api/get_users/user_id_success.yaml
 
 *** Test Cases ***
 Scenario1: Users - Get user by id

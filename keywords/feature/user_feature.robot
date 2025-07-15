@@ -102,3 +102,22 @@ Verify user id support section
     common_keywords.Verify response value is string    ${support}    text
     common_keywords.Verify response contains key value    ${support}    url    ${expected_support_url}
     common_keywords.Verify response contains key value    ${support}    text    ${expected_support_text}
+
+Verify cerate user response
+    [Arguments]    ${response}    ${expected_name}=${None}    ${expected_job}=${None}
+    ${response}    Set Variable    ${response.json()}
+    IF    '${expected_name}' != '${None}'
+        common_keywords.Verify response json has key    ${response}    name
+        common_keywords.Verify response value is string    ${response}    name
+        common_keywords.Verify response contains key value    ${response}    name    ${expected_name}
+    END
+    IF    '${expected_job}' != '${None}'
+    common_keywords.Verify response json has key    ${response}    job
+    common_keywords.Verify response value is string    ${response}    job
+    common_keywords.Verify response contains key value    ${response}    job    ${expected_job}
+    END
+    common_keywords.Verify response json has key    ${response}    id
+    common_keywords.Verify response json has key    ${response}    createdAt
+    common_keywords.Verify response value is string    ${response}    id
+    common_keywords.Verify response value is string    ${response}    createdAt
+
