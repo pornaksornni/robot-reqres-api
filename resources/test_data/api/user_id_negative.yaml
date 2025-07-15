@@ -1,0 +1,5 @@
+scenario_1:
+  request_params:
+    user_id: 23
+  expected_response:
+    status_code: "404"

@@ -12,3 +12,11 @@ Get user list
     common_keywords.Create API Session    get_user_session    ${reqres_base_url}
     ${response}    common_keywords.Get API Request    get_user_session    /api/users    params=${query_params}    headers=${headers}    expected_status=${expected_status}
     RETURN    ${response}
+
+Get user by id
+    [Arguments]    ${user_id}    ${headers}=${None}    ${expected_status}=200
+    ${default_headers}    Create Dictionary    Content-Type=application/json; charset=utf-8    x-api-key=${reqres_x_api_key}
+    ${headers}    Set Variable If    ${headers} is None    ${default_headers}    ${headers}
+    common_keywords.Create API Session    get_user_session    ${reqres_base_url}
+    ${response}    common_keywords.Get API Request    get_user_session    /api/users/${user_id}    headers=${headers}    expected_status=${expected_status}
+    RETURN    ${response}

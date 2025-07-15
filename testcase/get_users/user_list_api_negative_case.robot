@@ -83,7 +83,7 @@ Scenario5: Users - Get user list - With non numeric per_page parameter - Expect 
     ...                                              expected_support_url=${scenario_5['expected_response']['support_url']}
     ...                                              expected_support_text=${scenario_5['expected_response']['support_text']}
 
-Scenario6: Users - Get user list - With Missing API Key Header - Expect 401 Unauthorized
+Scenario6: Users - Get user list - With missing API key header - Expect 401 Unauthorized
     [Tags]    api_get    user_list    without_api_key_header    nagative
     ${user_list}    user_api_keyword.Get user list    headers=${scenario_6['request_headers']}
     ...                                               page=${scenario_6['request_params']['page']}

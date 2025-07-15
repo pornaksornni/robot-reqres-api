@@ -46,8 +46,8 @@ Verify user data list content
     END
 
 Verify user list support section
-    [Arguments]    ${user_list}    ${expected_support_url}    ${expected_support_text}
-    ${support}    Get From Dictionary    ${user_list.json()}    support
+    [Arguments]    ${user_details}    ${expected_support_url}    ${expected_support_text}
+    ${support}    Get From Dictionary    ${user_details.json()}    support
     common_keywords.Verify response json has key    ${support}    url
     common_keywords.Verify response json has key    ${support}    text
     common_keywords.Verify response value is string    ${support}    url
@@ -64,3 +64,41 @@ Verify when error 401
     common_keywords.Verify response value is string    ${response}    how_to_get_one
     common_keywords.Verify response contains key value    ${response}    error    ${expected_error}
     common_keywords.Verify response contains key value    ${response}    how_to_get_one    ${expected_how_to_get_one}
+
+Verify user id response structure
+    [Documentation]    Verify top-level structure of user id response.
+    [Arguments]    ${user_details}
+    ${user_details}    Set Variable    ${user_details.json()}
+    ${data_dict}    Get From Dictionary    ${user_details}    data
+    ${support_dict}    Get From Dictionary    ${user_details}    support
+    common_keywords.Verify response json has key    ${user_details}    data
+    common_keywords.Verify response json has key    ${user_details}    support
+    common_keywords.Verify response value is dictionary    ${data_dict}    data
+    common_keywords.Verify response value is dictionary    ${support_dict}    support
+
+Verify user data details content
+    [Arguments]    ${user_details}    ${expected_user_id}    ${expected_user_email}    ${expected_user_first_name}    ${expected_user_last_name}    ${expected_user_avatar}
+    ${data_details}    Get From Dictionary    ${user_details.json()}    data
+    common_keywords.Verify response json has key    ${data_details}    id
+    common_keywords.Verify response json has key    ${data_details}    email
+    common_keywords.Verify response json has key    ${data_details}    first_name
+    common_keywords.Verify response json has key    ${data_details}    last_name
+    common_keywords.Verify response json has key    ${data_details}    avatar
+    common_keywords.Verify response value is integer    ${data_details}    id
+    common_keywords.Verify response value is string    ${data_details}    email
+    common_keywords.Verify response value is email    ${data_details}    email
+    common_keywords.Verify response contains key value    ${data_details}    id    ${expected_user_id}
+    common_keywords.Verify response contains key value    ${data_details}    email    ${expected_user_email}
+    common_keywords.Verify response contains key value    ${data_details}    first_name    ${expected_user_first_name}
+    common_keywords.Verify response contains key value    ${data_details}    last_name    ${expected_user_last_name}
+    common_keywords.Verify response contains key value    ${data_details}    avatar    ${expected_user_avatar}
+
+Verify user id support section
+    [Arguments]    ${user_detils}    ${expected_support_url}    ${expected_support_text}
+    ${support}    Get From Dictionary    ${user_detils.json()}    support
+    common_keywords.Verify response json has key    ${support}    url
+    common_keywords.Verify response json has key    ${support}    text
+    common_keywords.Verify response value is string    ${support}    url
+    common_keywords.Verify response value is string    ${support}    text
+    common_keywords.Verify response contains key value    ${support}    url    ${expected_support_url}
+    common_keywords.Verify response contains key value    ${support}    text    ${expected_support_text}
