@@ -13,6 +13,16 @@ Post API request
     ${response}    Post On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    json=&{body}    expected_status=${expected_status}
     RETURN    ${response}
 
+Put API request
+    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${None}    ${headers}=${None}    ${body}=${None}
+    ${response}    Put On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    json=&{body}    expected_status=${expected_status}
+    RETURN    ${response}
+
+Patch API request
+    [Arguments]    ${session_alias}    ${endpoint}    ${expected_status}    ${params}=${None}    ${headers}=${None}    ${body}=${None}
+    ${response}    Patch On Session    ${session_alias}    ${endpoint}    params=${params}    headers=${headers}    json=&{body}    expected_status=${expected_status}
+    RETURN    ${response}
+
 Verify status code
     [Arguments]    ${response}   ${expected_status_code}
     Should Be Equal As Strings    ${response.status_code}   ${expected_status_code}    msg=Expected status code ${expected_status_code}, but got ${response.status_code}. Response: ${response.text}
