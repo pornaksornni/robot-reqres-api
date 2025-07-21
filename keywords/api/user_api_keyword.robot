@@ -21,7 +21,7 @@ Get user by id
     RETURN    ${response}
 
 Post create user
-    [Arguments]    ${name}=${None}    ${job}=${None}    ${headers}=${None}    ${expected_status}=200
+    [Arguments]    ${name}=${None}    ${job}=${None}    ${headers}=${None}    ${expected_status}=201
     ${default_headers}    Create Dictionary    Content-Type=application/json; charset=utf-8    x-api-key=${reqres_x_api_key}
     ${query_params}    Create Dictionary
     Run Keyword If    '${name}' != '${None}'    Set To Dictionary    ${query_params}    name=${name}
@@ -51,4 +51,12 @@ Patch update user details
     ${headers}    Set Variable If    ${headers} is None    ${default_headers}    ${headers}
     common_keywords.Create API Session    user_session    ${reqres_base_url}
     ${response}    common_keywords.Patch API request    user_session    /api/users/${user_id}    headers=${headers}    body=${query_params}    expected_status=${expected_status}
+    RETURN    ${response}
+
+delete user
+    [Arguments]    ${user_id}    ${headers}=${None}    ${expected_status}=204
+    ${default_headers}    Create Dictionary    Content-Type=application/json; charset=utf-8    x-api-key=${reqres_x_api_key}
+    ${headers}    Set Variable If    ${headers} is None    ${default_headers}    ${headers}
+    common_keywords.Create API Session    user_session    ${reqres_base_url}
+    ${response}    common_keywords.Delete API request    user_session    /api/users/${user_id}    headers=${headers}    expected_status=${expected_status}
     RETURN    ${response}

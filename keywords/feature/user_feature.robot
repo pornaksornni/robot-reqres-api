@@ -134,5 +134,5 @@ Verify update user details response
     common_keywords.Verify response value is string    ${response}    job
     common_keywords.Verify response contains key value    ${response}    job    ${expected_job}
     END
-    common_keywords.Verify response json has key    ${response}    createdAt
-    common_keywords.Verify response value is string    ${response}    createdAt
+    common_keywords.Verify response json has key    ${response}    updatedAt
+    common_keywords.Verify response value is string    ${response}    updatedAt

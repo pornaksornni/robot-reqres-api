@@ -1,20 +1,13 @@
 scenario_1:
   request_params:
-    user_id: 2
+    user_id: 99
   expected_response:
-    status_code: "200"
+    status_code: "204"
 scenario_2:
-  request_params:
-    user_id: 2
-    name: 123
-  expected_response:
-    status_code: "200"
-    name: 123
-scenario_3:
   request_headers:
     Content-Type: application/json
   request_params:
-    user_id: 2
+    user_id: 99
   expected_response:
     status_code: "401"
     error_reason: Unauthorized

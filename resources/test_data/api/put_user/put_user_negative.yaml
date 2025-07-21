@@ -1,27 +1,20 @@
 scenario_1:
   request_params:
-    name: morpheus
+    user_id: 2
   expected_response:
-    status_code: "201"
-    name: morpheus
+    status_code: "200"
 scenario_2:
   request_params:
-    job: leader
+    user_id: 2
+    name: 123
   expected_response:
-    status_code: "201"
-    job: leader
+    status_code: "200"
+    name: 123
 scenario_3:
-  expected_response:
-    status_code: "201"
-scenario_4:
-  request_params:
-    name: 123
-  expected_response:
-    status_code: "201"
-    name: 123
-scenario_5:
   request_headers:
     Content-Type: application/json
+  request_params:
+    user_id: 2
   expected_response:
     status_code: "401"
     error_reason: Unauthorized
