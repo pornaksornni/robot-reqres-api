@@ -1,0 +1,23 @@
+scenario_1:
+  request_params:
+    user_id: 2
+    name: morpheus1
+    job: leader
+  expected_response:
+    status_code: "200"
+    name: morpheus1
+    job: leader
+scenario_2:
+  request_params:
+    user_id: 2
+    name: morpheus2
+  expected_response:
+    status_code: "200"
+    name: morpheus2
+scenario_3:
+  request_params:
+    user_id: 2
+    job: leader3
+  expected_response:
+    status_code: "200"
+    job: leader3

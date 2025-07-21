@@ -1,0 +1,22 @@
+scenario_1:
+  request_params:
+    user_id: 2
+  expected_response:
+    status_code: "200"
+scenario_2:
+  request_params:
+    user_id: 2
+    name: 123
+  expected_response:
+    status_code: "200"
+    name: 123
+scenario_3:
+  request_headers:
+    Content-Type: application/json
+  request_params:
+    user_id: 2
+  expected_response:
+    status_code: "401"
+    error_reason: Unauthorized
+    error_message: Missing API key.
+    how_to_get_one: https://reqres.in/signup

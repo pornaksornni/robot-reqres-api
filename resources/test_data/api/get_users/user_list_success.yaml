@@ -1,0 +1,84 @@
+scenario_1:
+  expected_response:
+    status_code: "200"
+    page: 1
+    per_page: 6
+    total: 12
+    total_pages: 2
+    data_count: 6
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_2:
+  request_params:
+    page: 1
+  expected_response:
+    status_code: "200"
+    page: 1
+    per_page: 6
+    total: 12
+    total_pages: 2
+    data_count: 6
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_3:
+  request_params:
+    page: 2
+  expected_response:
+    status_code: "200"
+    page: 2
+    per_page: 6
+    total: 12
+    total_pages: 2
+    data_count: 6
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_4:
+  request_params:
+    per_page: 2
+  expected_response:
+    status_code: "200"
+    page: 1
+    per_page: 2
+    total: 12
+    total_pages: 6
+    data_count: 2
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_5:
+  request_params:
+    per_page: 100
+  expected_response:
+    status_code: "200"
+    page: 1
+    per_page: 100
+    total: 12
+    total_pages: 1
+    data_count: 12
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_6:
+  request_params:
+    page: 2
+    per_page: 10
+  expected_response:
+    status_code: "200"
+    page: 2
+    per_page: 10
+    total: 12
+    total_pages: 2
+    data_count: 2
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.
+scenario_7:
+  request_params:
+    page: 1
+    per_page: 10
+  expected_response:
+    status_code: "200"
+    page: 1
+    per_page: 10
+    total: 12
+    total_pages: 2
+    data_count: 10
+    support_url: https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral
+    support_text: Tired of writing endless social media content? Let Content Caddy generate it for you.

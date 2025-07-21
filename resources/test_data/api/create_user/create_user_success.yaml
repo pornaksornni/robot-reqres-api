@@ -1,0 +1,14 @@
+scenario_1:
+  request_params:
+    name: morpheus
+    job: leader
+  expected_response:
+    status_code: "201"
+    name: morpheus
+    job: leader
+scenario_2:
+  request_params:
+    name: morpheus
+  expected_response:
+    status_code: "201"
+    name: morpheus
