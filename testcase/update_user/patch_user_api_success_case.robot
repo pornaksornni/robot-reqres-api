@@ -4,7 +4,7 @@ Variables    ${CURDIR}/../../resources/test_data/api/patch_user/patch_user_succe
 
 *** Test Cases ***
 Scenario1: Users - Update user details with name and job parameter successfully
-    [Tags]    api_patch    update_user    with_parameter    success
+    [Tags]    api    patch    update_user    with_parameter    success
     ${response}    user_api_keyword.Patch update user details    user_id=${scenario_1['request_params']['user_id']}
     ...                                                          name=${scenario_1['request_params']['name']}
     ...                                                          job=${scenario_1['request_params']['job']}
@@ -15,7 +15,7 @@ Scenario1: Users - Update user details with name and job parameter successfully
     ...                                                 expected_job=${scenario_1['expected_response']['job']}
 
 Scenario2: Users - Update user details with name parameter only successfully
-    [Tags]    api_patch    update_user    with_parameter    negative
+    [Tags]    api    patch    update_user    with_parameter    negative
     ${response}    user_api_keyword.Patch update user details    user_id=${scenario_2['request_params']['user_id']}
     ...                                                          name=${scenario_2['request_params']['name']}
     ...                                                          expected_status=${scenario_2['expected_response']['status_code']}
@@ -24,7 +24,7 @@ Scenario2: Users - Update user details with name parameter only successfully
     ...                                                 expected_name=${scenario_2['expected_response']['name']}
 
 Scenario3: Users - Update user details with job parameter only successfully
-    [Tags]    api_patch    update_user    with_parameter    negative
+    [Tags]    api    patch    update_user    with_parameter    negative
     ${response}    user_api_keyword.Patch update user details    user_id=${scenario_3['request_params']['user_id']}
     ...                                                          job=${scenario_3['request_params']['job']}
     ...                                                          expected_status=${scenario_3['expected_response']['status_code']}

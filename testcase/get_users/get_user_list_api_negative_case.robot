@@ -4,7 +4,7 @@ Variables    ${CURDIR}/../../resources/test_data/api/get_users/user_list_negativ
 
 *** Test Cases ***
 Scenario1: Users - Get user list - With non existent page number - Expect 200 ok but empty data
-    [Tags]    api_get    user_list    with_page_parameter    nagative
+    [Tags]    api    get    user_list    with_page_parameter    nagative
     ${user_list}    user_api_keyword.Get user list    page=${scenario_1['request_params']['page']}
     common_keywords.Verify status code    ${user_list}    ${scenario_1['expected_response']['status_code']}
     user_feature.Verify user list response structure    ${user_list}
@@ -20,7 +20,7 @@ Scenario1: Users - Get user list - With non existent page number - Expect 200 ok
     ...                                              expected_support_text=${scenario_1['expected_response']['support_text']}
 
 Scenario2: Users - Get user list - With negative page number - Expect 200 ok but empty data
-    [Tags]    api_get    user_list    with_page_parameter    nagative
+    [Tags]    api    get    user_list    with_page_parameter    nagative
     ${user_list}    user_api_keyword.Get user list    page=${scenario_2['request_params']['page']}
     common_keywords.Verify status code    ${user_list}    ${scenario_2['expected_response']['status_code']}
     user_feature.Verify user list response structure    ${user_list}
@@ -36,7 +36,7 @@ Scenario2: Users - Get user list - With negative page number - Expect 200 ok but
     ...                                              expected_support_text=${scenario_2['expected_response']['support_text']}
 
 Scenario3: Users - Get user list - With non numeric page parameter - Expect 200 ok and default first page
-    [Tags]    api_get    user_list    with_page_parameter    nagative
+    [Tags]    api    get    user_list    with_page_parameter    nagative
     ${user_list}    user_api_keyword.Get user list    page=${scenario_3['request_params']['page']}
     common_keywords.Verify status code    ${user_list}    ${scenario_3['expected_response']['status_code']}
     user_feature.Verify user list response structure    ${user_list}
@@ -52,7 +52,7 @@ Scenario3: Users - Get user list - With non numeric page parameter - Expect 200 
     ...                                              expected_support_text=${scenario_3['expected_response']['support_text']}
 
 Scenario4: Users - Get user list - With per_page 0 parameter - Expect 200 ok and return default per_page
-    [Tags]    api_get    user_list    with_per_page_parameter    nagative
+    [Tags]    api    get    user_list    with_per_page_parameter    nagative
     ${user_list}    user_api_keyword.Get user list    per_page=${scenario_4['request_params']['per_page']}
     common_keywords.Verify status code    ${user_list}    ${scenario_4['expected_response']['status_code']}
     user_feature.Verify user list response structure    ${user_list}
@@ -68,7 +68,7 @@ Scenario4: Users - Get user list - With per_page 0 parameter - Expect 200 ok and
     ...                                              expected_support_text=${scenario_4['expected_response']['support_text']}
 
 Scenario5: Users - Get user list - With non numeric per_page parameter - Expect 200 ok and return default per_page
-    [Tags]    api_get    user_list    with_per_page_parameter    nagative
+    [Tags]    api    get    user_list    with_per_page_parameter    nagative
     ${user_list}    user_api_keyword.Get user list    per_page=${scenario_5['request_params']['per_page']}
     common_keywords.Verify status code    ${user_list}    ${scenario_5['expected_response']['status_code']}
     user_feature.Verify user list response structure    ${user_list}
@@ -84,7 +84,7 @@ Scenario5: Users - Get user list - With non numeric per_page parameter - Expect 
     ...                                              expected_support_text=${scenario_5['expected_response']['support_text']}
 
 Scenario6: Users - Get user list - With missing API key header - Expect 401 Unauthorized
-    [Tags]    api_get    user_list    without_api_key_header    nagative
+    [Tags]    api    get    user_list    without_api_key_header    nagative
     ${user_list}    user_api_keyword.Get user list    headers=${scenario_6['request_headers']}
     ...                                               page=${scenario_6['request_params']['page']}
     ...                                               expected_status=${scenario_6['expected_response']['status_code']}
