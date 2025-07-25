@@ -32,6 +32,10 @@ Verify status code
     [Arguments]    ${response}   ${expected_status_code}
     Should Be Equal As Strings    ${response.status_code}   ${expected_status_code}    msg=Expected status code ${expected_status_code}, but got ${response.status_code}. Response: ${response.text}
 
+Verify response body is empty JSON
+    [Arguments]    ${response}
+    Should Be Empty    ${response.json()}    msg=Expected response body should be {}, buy got ${response.json()}
+
 Verify error meaasge
     [Arguments]    ${response}   ${error_reason}
     Should Be Equal As Strings    ${response.reason}   ${error_reason}    msg=Expected reason ${error_reason}, but got ${response.reason}. Response: ${response.text}

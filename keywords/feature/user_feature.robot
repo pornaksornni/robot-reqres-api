@@ -46,8 +46,8 @@ Verify user data list content
     END
 
 Verify user list support section
-    [Arguments]    ${user_details}    ${expected_support_url}    ${expected_support_text}
-    ${support}    Get From Dictionary    ${user_details.json()}    support
+    [Arguments]    ${user_list}    ${expected_support_url}    ${expected_support_text}
+    ${support}    Get From Dictionary    ${user_list.json()}    support
     common_keywords.Verify response json has key    ${support}    url
     common_keywords.Verify response json has key    ${support}    text
     common_keywords.Verify response value is string    ${support}    url
@@ -94,8 +94,8 @@ Verify user data details content
     common_keywords.Verify response contains key value    ${data_details}    avatar    ${expected_user_avatar}
 
 Verify user id support section
-    [Arguments]    ${user_detils}    ${expected_support_url}    ${expected_support_text}
-    ${support}    Get From Dictionary    ${user_detils.json()}    support
+    [Arguments]    ${user_details}    ${expected_support_url}    ${expected_support_text}
+    ${support}    Get From Dictionary    ${user_details.json()}    support
     common_keywords.Verify response json has key    ${support}    url
     common_keywords.Verify response json has key    ${support}    text
     common_keywords.Verify response value is string    ${support}    url
